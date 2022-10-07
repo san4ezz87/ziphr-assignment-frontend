@@ -1,0 +1,39 @@
+
+<!-- Create task form -->
+<form [formGroup]="createTaskForm"
+      (ngSubmit)="onSubmit()">
+  <!-- Input title -->
+  <div class="mb-3">
+    <label for="title" class="form-label">Title</label>
+    <input type="text"
+           class="form-control"
+           id="title"
+           placeholder="Task title"
+           formControlName="title">
+  </div>
+  <!-- Select priority -->
+  <div class="mb-4">
+    <label for="Priority" class="form-label">Priority</label>
+    <select class="form-select"
+            id="Priority"
+            formControlName="priority">
+      <option *ngFor="let option of options"
+              [ngValue]="option.value">
+        {{option.key.toLocaleLowerCase()}}
+      </option>
+    </select>
+  </div>
+  <!-- Create task button -->
+  <div class="d-flex justify-content-end">
+    <button class="btn btn-primary"
+            title="Create task"
+            type="submit"
+            [disabled]="!createTaskForm.valid">
+      Submit
+    </button>
+  </div>
+</form>
+
+
+
+

@@ -38,4 +38,12 @@ export class AppService {
       },
     });
   }
+
+  /**
+ * Save task
+ * @param {Todo} todo - Task to save in localStorage.
+ */
+  save(todo: Todo): void {
+    this.todos.next([...this.todos.value, todo]);
+  }
 }
